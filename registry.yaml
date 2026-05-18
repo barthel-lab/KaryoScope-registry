@@ -1,0 +1,59 @@
+# KaryoScope database registry
+#
+# This file lists all databases available via `karyoscope download`.
+# See README.md for the schema and CONTRIBUTING.md for how to add entries.
+
+schema_version: 1
+
+# Officially maintained databases.
+# These are reviewed for accuracy and ongoing maintenance.
+databases:
+  - id: KS_human_CHM13_v2
+    title: "KaryoScope human reference (CHM13) v2"
+    description: >
+      Chromosome of origin, satellite composition, interspersed repeats,
+      subtelomeric structure, gene boundaries, and acrocentric-specific
+      features for human, built from the T2T-CHM13v2.0 reference assembly.
+      Recommended starter database for human genome analysis.
+    version: "2.0.0"
+    release_date: "2026-05-18"
+    karyoscope_min_version: "1.0.0"
+    default: true
+    taxonomy:
+      - genus: Homo
+        species: sapiens
+        common_name: human
+        ncbi_taxid: 9606
+    kmer:
+      size: 31
+      type: fixed
+      max_size: 31
+    feature_sets:
+      - chromosome
+      - region
+      - repeat
+      - subtelomeric
+      - gene
+      - acrocentric
+    roles:
+      chromosome_assignment: chromosome
+      region_assignment: region
+      centromere_detection: region
+    smoothing:
+      recommended_window_bp: 1000
+    tags:
+      - default
+      - human
+      - cytogenetics
+      - CHM13
+    size_gb: 17.2
+    source: zenodo
+    doi: "PLACEHOLDER"
+    url: "PLACEHOLDER"
+    sha256: "PLACEHOLDER"
+    citation: "Ranallo-Benavidez TR, et al. KaryoScope: rapid, alignment-free sequence annotation for the pangenome era. bioRxiv 2026."
+    maintained_by: "Barthel Lab, TGen"
+
+# Community-contributed databases.
+# These are accepted with lighter review; quality is the contributor's responsibility.
+community_databases: []
