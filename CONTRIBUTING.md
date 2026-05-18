@@ -7,7 +7,7 @@ and shared a KaryoScope-compatible database.
 ## How to add a database
 
 1. **Build your database** using `karyoscope build` (or by hand, following the
-   layout in [DATABASE_LAYOUT.md](DATABASE_LAYOUT.md). See below for validating
+   layout in [DATABASE_LAYOUT.md](DATABASE_LAYOUT.md)). See below for validating
    a database.
 2. **Upload the database tarball** to a stable host. We strongly recommend
    [Zenodo](https://zenodo.org/) because each upload gets a permanent DOI.
