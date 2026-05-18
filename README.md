@@ -26,7 +26,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Used by
 
-- [KaryoScope](https://github.com/Barthel-lab/KaryoScope)
+- [KaryoScope](https://github.com/barthel-lab/KaryoScope)
 
 ## License
 

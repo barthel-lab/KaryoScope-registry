@@ -2,7 +2,7 @@
 
 This document specifies the canonical on-disk layout for a KaryoScope database
 archive. All databases distributed through the
-[karyoscope-registry](https://github.com/Barthel-lab/karyoscope-registry)
+[karyoscope-registry](https://github.com/barthel-lab/KaryoScope-registry)
 must conform to this layout. KaryoScope validates the layout at install time
 and refuses to install non-conforming archives.
 

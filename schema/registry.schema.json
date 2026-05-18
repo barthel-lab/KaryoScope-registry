@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Barthel-lab/karyoscope-registry/schema/registry.schema.json",
+  "$id": "https://github.com/barthel-lab/KaryoScope-registry/schema/registry.schema.json",
   "title": "KaryoScope Registry",
   "type": "object",
   "required": ["schema_version", "databases"],
