@@ -64,17 +64,17 @@ Notes:
 
 ### `features.tsv` (required)
 
-Tab-separated file mapping numeric feature IDs (as emitted by `get_featureIDs`)
-to feature names for each feature set. The first column is the feature ID,
+Tab-separated file mapping numeric featureIDs (as emitted by `get_featureIDs`)
+to feature names for each feature set. The first column is the featureID,
 subsequent columns are feature names per feature set. The header line names
 the feature sets:
 
-    feature_id	chromosome	haplotype	region	...
+    featureID	chromosome	haplotype	region	...
     1	chr1	hap1	p_arm	...
     2	chr1	hap1	centromere	...
     ...
 
-Feature ID `0` is reserved for "novel" (k-mers not present in the index)
+FeatureID `0` is reserved for "novel" (k-mers not present in the index)
 and is not listed; KaryoScope handles it implicitly.
 
 ### `hierarchy.tsv` (required)
