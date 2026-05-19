@@ -14,57 +14,20 @@ directory of the same name:
 
     KS_human_CHM13_v2.tar.gz
     └── KS_human_CHM13_v2/
-        ├── manifest.yaml
-        ├── hierarchy.tsv
+        ├── colors.tsv
         ├── features.tsv
-        ├── colors.txt
-        └── index/
-            ├── features.kmc_pre
-            └── features.kmc_suf
+        ├── hierarchy.tsv
+        ├── index/
+        │   ├── features.kmc_pre
+        │   └── features.kmc_suf
+        └── manifest.yaml
 
 The top-level directory name **must match the `id` field** in the registry
 entry and the `id` field in `manifest.yaml`.
 
 ## Files
 
-### `manifest.yaml` (required)
-
-Operational metadata describing the database's structure and capabilities.
-This is read by KaryoScope at install time and at every command invocation.
-See the [Manifest schema](#manifest-schema) section below.
-
-### `hierarchy.tsv` (required)
-
-Tab-separated file describing the feature hierarchy. Three columns with a
-header line:
-
-    feature_set	child	parent
-    chromosome	chr1	metacentric
-    chromosome	chr2	metacentric
-    chromosome	metacentric	autosome
-    chromosome	autosome	categorized
-    region	p_arm	arm
-    region	q_arm	arm
-    ...
-
-The root of every tree must be the literal string `categorized`.
-
-### `features.tsv` (required)
-
-Tab-separated file mapping numeric feature IDs (as emitted by `get_featureIDs`)
-to feature names for each feature set. The first column is the feature ID,
-subsequent columns are feature names per feature set. The header line names
-the feature sets:
-
-    feature_id	chromosome	haplotype	region	...
-    1	chr1	hap1	p_arm	...
-    2	chr1	hap1	centromere	...
-    ...
-
-Feature ID `0` is reserved for "novel" (k-mers not present in the index)
-and is not listed; KaryoScope handles it implicitly.
-
-### `colors.txt` (required)
+### `colors.tsv` (required)
 
 Tab-separated file mapping features to display colors, used by
 `karyoscope karyotype` when rendering. Three columns with a header line:
@@ -90,14 +53,45 @@ Columns:
 Notes:
 
 - The reserved feature `novel` (k-mers not present in the index) is
-  always rendered with a built-in fixed color. Rows in `colors.txt`
+  always rendered with a built-in fixed color. Rows in `colors.tsv`
   that attempt to set a color for `novel` are ignored, with a warning.
-- Features absent from `colors.txt` are rendered with a fallback color (light gray) and
+- Features absent from `colors.tsv` are rendered with a fallback color (light gray) and
   generate a warning at render time. To suppress the warning, list every
   feature that may appear in the rendered output.
 - The same feature name may appear in multiple feature sets with different
   colors (e.g. `rDNA` in both `acrocentric` and `region`); the `feature_set`
   column disambiguates.
+
+### `features.tsv` (required)
+
+Tab-separated file mapping numeric feature IDs (as emitted by `get_featureIDs`)
+to feature names for each feature set. The first column is the feature ID,
+subsequent columns are feature names per feature set. The header line names
+the feature sets:
+
+    feature_id	chromosome	haplotype	region	...
+    1	chr1	hap1	p_arm	...
+    2	chr1	hap1	centromere	...
+    ...
+
+Feature ID `0` is reserved for "novel" (k-mers not present in the index)
+and is not listed; KaryoScope handles it implicitly.
+
+### `hierarchy.tsv` (required)
+
+Tab-separated file describing the feature hierarchy. Three columns with a
+header line:
+
+    feature_set	child	parent
+    chromosome	chr1	metacentric
+    chromosome	chr2	metacentric
+    chromosome	metacentric	autosome
+    chromosome	autosome	categorized
+    region	p_arm	arm
+    region	q_arm	arm
+    ...
+
+The root of every tree must be the literal string `categorized`.
 
 ### `index/` directory (required)
 
@@ -110,6 +104,12 @@ declared in `manifest.yaml`:
 
 Other index types may be added in future KaryoScope versions; see the
 manifest schema for the up-to-date list.
+
+### `manifest.yaml` (required)
+
+Operational metadata describing the database's structure and capabilities.
+This is read by KaryoScope at install time and at every command invocation.
+See the [Manifest schema](#manifest-schema) section below.
 
 ## Manifest schema
 
@@ -126,7 +126,7 @@ index:
 
 hierarchy: hierarchy.tsv               # Path to hierarchy file (relative)
 features: features.tsv                 # Path to features file (relative)
-colors: colors.txt                     # Path to colors file (relative)
+colors: colors.tsv                     # Path to colors file (relative)
 
 kmer:
   size: 31                             # k-mer size used to query
