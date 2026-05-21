@@ -48,9 +48,9 @@ databases:
       - CHM13
     size_gb: 17.2
     source: zenodo
-    doi: "PLACEHOLDER"
-    url: "PLACEHOLDER"
-    sha256: "PLACEHOLDER"
+    doi: "https://doi.org/10.5281/zenodo.20217996"
+    url: "https://zenodo.org/records/20217996/files/KS_human_CHM13_v2.tar.gz?download=1"
+    sha256: "03d75b77606daa59da21fa746b88dfa21dfa346ab03a7b5fb29ff08dcca76d09"
     citation: "Ranallo-Benavidez TR, et al. KaryoScope: rapid, alignment-free sequence annotation for the pangenome era. bioRxiv 2026."
     maintained_by: "Barthel Lab, TGen"
 
