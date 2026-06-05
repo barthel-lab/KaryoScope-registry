@@ -50,7 +50,7 @@ databases:
     source: zenodo
     doi: "https://doi.org/10.5281/zenodo.20217996"
     url: "https://zenodo.org/records/20217996/files/KS_human_CHM13_v2.tar.gz?download=1"
-    sha256: "03d75b77606daa59da21fa746b88dfa21dfa346ab03a7b5fb29ff08dcca76d09"
+    sha256: "41daf23bb289bd85f14ea20e2d20c88aa2c42aa7675083752b343216af2b16bb"
     citation: "Ranallo-Benavidez TR, et al. KaryoScope: rapid, alignment-free sequence annotation for the pangenome era. bioRxiv 2026."
     maintained_by: "Barthel Lab, TGen"
 
