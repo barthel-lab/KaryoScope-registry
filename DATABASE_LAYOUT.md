@@ -141,7 +141,7 @@ feature_sets:                          # Must match what's in features.tsv heade
   - gene
   - acrocentric
 
-roles:                                 # Which feature_sets play special roles
+roles:                                 # Optional — which feature_sets play special roles
   chromosome_assignment: chromosome    # Used by `scaffold` and `karyotype`
   region_assignment: region            # Used by `scaffold` and `karyotype`
   centromere_detection: region         # Used by `centromeres`
@@ -149,6 +149,21 @@ roles:                                 # Which feature_sets play special roles
 smoothing:
   recommended_window_bp: 1000          # Default smoothing window (advisory)
 ```
+
+The `roles:` section is **optional**. It is consumed only by the commands that
+build and render karyotypes:
+
+- `chromosome_assignment` and `region_assignment` are read by `scaffold`.
+- `centromere_detection` (falling back to `region_assignment`) is read by
+  `centromeres` and by `karyotype` when it draws centromeres.
+
+Databases intended only for annotation and binning (`annotate`, `bin`) do not
+need `roles` and may omit the section entirely — for example, a cytoband
+database. When a command that needs a role runs against a database that omits
+it, KaryoScope falls back to the literal feature-set names `chromosome` /
+`region` and emits a warning; if those feature sets are not declared either,
+that command errors. The `annotate`, `bin`, `info`, and `download` commands
+never consult `roles`, so omitting it never blocks installation or inspection.
 
 ## Why this layout
 
