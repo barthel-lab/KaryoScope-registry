@@ -23,7 +23,7 @@
       "type": "object",
       "required": [
         "id", "title", "version", "karyoscope_min_version",
-        "taxonomy", "kmer", "feature_sets", "roles",
+        "taxonomy", "kmer", "feature_sets",
         "size_gb", "source", "url", "sha256"
       ],
       "properties": {
@@ -67,6 +67,7 @@
         },
         "roles": {
           "type": "object",
+          "description": "Optional. Maps conceptual roles to feature_set names. Consumed only by the scaffold, centromeres, and karyotype commands. Databases intended only for annotate/bin (e.g. cytoband) may omit this section.",
           "properties": {
             "chromosome_assignment": { "type": "string" },
             "region_assignment": { "type": "string" },
